@@ -5,38 +5,36 @@ package auth;
 option go_package = "sso.v1;ssov1";
 
 service Auth {
-    rpc Register(RegisterRequest) returns (RegisterResponse);
-    rpc Login(LoginRequest) returns (LoginResponse);
-    rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
-
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
 }
 
 // Register
 message RegisterRequest {
-    string email = 1;
-    string password = 2;
-
+  string email = 1;
+  string password = 2;
 }
 
 message RegisterResponse {
-    string user_id = 1;
+  int64 user_id = 1;
 }
 
 // Login
 message LoginRequest {
-    string email = 1;
-    string password = 2;
+  string email = 1;
+  string password = 2;
 }
 
 message LoginResponse {
-    string token = 1;
+  string token = 1;
 }
 
 // IsAdmin
 message IsAdminRequest {
-    string user_id = 1;
+  int64 user_id = 1;
 }
 
 message IsAdminResponse {
-    bool is_admin = 1;
+  bool is_admin = 1;
 }
